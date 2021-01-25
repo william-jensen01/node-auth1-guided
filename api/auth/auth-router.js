@@ -9,6 +9,12 @@ router.post('/register', (req, res) => {
   const hashed = bcrypt.hashSync(password, 10) // 2 ^ 10
 
   User.add({ username, password: hashed, role })
+    .then(user => {
+      res.status(201).json(user)
+    })
+    .catch(err => {
+      res.status(500).json(err.message)
+    })
 });
 
 router.post('/login', (req, res) => {
