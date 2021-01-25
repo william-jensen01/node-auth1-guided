@@ -3,7 +3,7 @@ const User = require("../users/users-model.js");
 const router = express.Router();
 
 router.post('/register', (req, res) => {
-  res.json('silly register');
+  const { username, password, role } = req.body
 });
 
 router.post('/login', (req, res) => {
