@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
     const allegedUser = await User.findBy({ username }).first()
     // 2- we compare their db hash, against the password in req
     if (allegedUser && bcrypt.compareSync(password, allegedUser.password)) {
-      // 
+      // save a session with this particular user
       res.json('welcome back')
     } else {
       res.status(401).json('invalid credentials')
