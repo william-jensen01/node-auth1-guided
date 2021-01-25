@@ -18,7 +18,8 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  res.json('silly login');
+  const { username, password } = req.body
+  // 
 });
 
 router.get('/logout', (req, res) => {
