@@ -4,11 +4,11 @@ const bcrypt = require("bcryptjs");
 const router = express.Router();
 
 router.post('/register', (req, res) => {
-  const { username, password, role = 2 } = req.body
+  const { username, password } = req.body
 
   const hashed = bcrypt.hashSync(password, 10) // 2 ^ 10
 
-  User.add({ username, password: hashed, role })
+  User.add({ username, password: hashed, role: 2 })
     .then(user => {
       res.status(201).json(user)
     })
