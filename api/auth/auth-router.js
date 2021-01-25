@@ -22,8 +22,8 @@ router.post('/login', async (req, res) => {
   // 1- we pull the user from the db by that username
   // 2- we compare their db hash, against the password in req
   try {
-    const alegedUser = await User.findBy({ username }).first()
-    if () {
+    const allegedUser = await User.findBy({ username }).first()
+    if (allegedUser && bcrypt.com) {
 
     } else {
 
