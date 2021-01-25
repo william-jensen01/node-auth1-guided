@@ -19,10 +19,10 @@ router.post('/register', (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { username, password } = req.body
-  // 1- we pull the user from the db by that username
-  // 2- we compare their db hash, against the password in req
   try {
+    // 1- we pull the user from the db by that username
     const allegedUser = await User.findBy({ username }).first()
+    // 2- we compare their db hash, against the password in req
     if (allegedUser && bcrypt.compareSync(password, allegedUser.password)) {
       res.json('welcome back')
     } else {
