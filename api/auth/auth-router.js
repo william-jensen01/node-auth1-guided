@@ -17,10 +17,15 @@ router.post('/register', (req, res) => {
     })
 });
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   const { username, password } = req.body
   // 1- we pull the user from the db by that username
   // 2- we compare their db hash, against the password in req
+  try {
+    const user = await User.findBy
+  } catch (err) {
+    res.status(500).json(err.message)
+  }
 });
 
 router.get('/logout', (req, res) => {
