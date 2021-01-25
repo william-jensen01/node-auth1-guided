@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const session = require("express-session");
 const cors = require("cors");
+const KnexSessionStore = require("")
 
 const usersRouter = require("./users/users-router.js");
 const authRouter = require("./auth/auth-router.js");
