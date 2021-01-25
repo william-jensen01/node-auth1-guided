@@ -23,7 +23,7 @@ router.post('/login', async (req, res) => {
   // 2- we compare their db hash, against the password in req
   try {
     const allegedUser = await User.findBy({ username }).first()
-    if (allegedUser && bcrypt.com) {
+    if (allegedUser && bcrypt.compareSync(password, allegedUser.password)) {
 
     } else {
 
