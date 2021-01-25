@@ -6,7 +6,9 @@ const router = express.Router();
 router.post('/register', (req, res) => {
   const { username, password, role = 2 } = req.body
   // save the username & password
-  bcrypt.hashSync(password, 10) // 2 ^ 10
+  const hashed = bcrypt.hashSync(password, 10) // 2 ^ 10
+
+  User.add({ username, password: hashed, role })
 });
 
 router.post('/login', (req, res) => {
