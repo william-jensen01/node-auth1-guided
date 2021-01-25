@@ -39,13 +39,13 @@ router.get('/logout', (req, res) => {
   if(req.session && req.session.user) {
     req.session.destroy(err => {
       if (err) {
-        res.json('you cannot leave')
+        res.json('you cannot leave');
       } else {
-        res.json('bye')
+        res.json('bye');
       }
     })
   } else {
-    res.end()
+    res.end();
   }
 });
 
