@@ -19,7 +19,8 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
   const { username, password } = req.body
-  // 
+  // 1- we pull the user from the db by that username
+  // 2- we compare their db hash, against the password in req
 });
 
 router.get('/logout', (req, res) => {
